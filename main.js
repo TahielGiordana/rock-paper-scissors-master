@@ -3,6 +3,8 @@ const scoreText = document.getElementById("totalScore");
 const rockBtn = document.getElementById("rockBtn");
 const paperBtn = document.getElementById("paperBtn");
 const scissorsBtn = document.getElementById("scissorsBtn");
+const lizardBtn = document.getElementById("lizardBtn");
+const spockBtn = document.getElementById("spockBtn");
 
 const resultText = document.getElementById("resultText");
 const replayBtn = document.getElementById("replayBtn");
@@ -15,7 +17,7 @@ const rulesBtn = document.getElementById("rulesBtn");
 const gameScreen = document.querySelector(".game");
 const resultScreen = document.querySelector(".result");
 
-const options = ["rock", "paper", "scissors"];
+const options = ["rock", "paper", "scissors", "lizard", "spock"];
 
 if (localStorage.getItem("score") == null) {
   scoreText.innerText = 0;
@@ -25,7 +27,7 @@ if (localStorage.getItem("score") == null) {
 }
 
 const calcHomeChoice = () => {
-  return options[Math.floor(Math.random() * 3)];
+  return options[Math.floor(Math.random() * 5)];
 };
 
 const optionBtns = document.querySelectorAll(".option__btn");
@@ -44,10 +46,19 @@ const getResult = (choices) => {
     case "rockrock":
     case "paperpaper":
     case "scissorsscissors":
+    case "lizardlizard":
+    case "spockspock":
       return "Draw";
     case "rockscissors":
     case "paperrock":
     case "scissorspaper":
+    case "rocklizard":
+    case "lizardspock":
+    case "spockscissors":
+    case "scissorslizard":
+    case "paperspock":
+    case "lizardpaper":
+    case "spockrock":
       if (parseInt(scoreText.innerText) < 999999) {
         scoreText.innerText = parseInt(scoreText.innerText) + 1;
         localStorage.setItem("score", parseInt(scoreText.innerText));
@@ -56,6 +67,17 @@ const getResult = (choices) => {
     case "rockpaper":
     case "paperscissors":
     case "scissorsrock":
+    case "lizardrock":
+    case "spocklizard":
+    case "scissorsspock":
+    case "lizardscissors":
+    case "spockpaper":
+    case "paperlizard":
+    case "rockspock":
+      if (parseInt(scoreText.innerText) > 0) {
+        scoreText.innerText = parseInt(scoreText.innerText) - 1;
+        localStorage.setItem("score", parseInt(scoreText.innerText));
+      }
       return "You lose";
   }
 };
@@ -69,14 +91,14 @@ const showResult = (playerChoice, houseChoice, result) => {
   let actualPlayerChoice = playerChoiceImg.parentElement.classList.item(1);
   playerChoiceImg.parentElement.classList.replace(
     "" + actualPlayerChoice,
-    "option__" + playerChoice
+    playerChoice + "-style"
   );
 
   houseChoiceImg.src = "images/icon-" + houseChoice + ".svg";
   let actualHouseChoice = houseChoiceImg.parentElement.classList.item(1);
   houseChoiceImg.parentElement.classList.replace(
     "" + actualHouseChoice,
-    "option__" + houseChoice
+    houseChoice + "-style"
   );
 
   //Se agrega el estilo al ganador
