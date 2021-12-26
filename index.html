@@ -1,37 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
-
-  Score
-  Rules
-
-  You Picked
-  The House Picked
-
-  You Win
-  You Lose
-
-  Play Again
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div class="title">
+      <img
+        class="title__img"
+        src="images/logo.svg"
+        alt="Rock, Paper, Scissors Logo"
+      />
+      <div class="title__score">
+        <span class="title__score__label uppercase">Score</span>
+        <span class="title__score__total">0</span>
+      </div>
+    </div>
+    <div class="game">
+      <div class="option">
+        <button class="option__btn" id="rockBtn">
+          <img
+            class="option__img"
+            src="images/icon-rock.svg"
+            alt="Rock button"
+          />
+        </button>
+      </div>
+      <div class="option">
+        <button class="option__btn" id="paperBtn">
+          <img
+            class="option__img"
+            src="images/icon-paper.svg"
+            alt="Paper button"
+          />
+        </button>
+      </div>
+      <div class="option">
+        <button class="option__btn" id="scissorsBtn">
+          <img
+            class="option__img"
+            src="images/icon-scissors.svg"
+            alt="Scissors button"
+          />
+        </button>
+      </div>
+    </div>
+    <div class="result hidden">
+      <div class="result__choice">
+        <span class="uppercase">You picked</span>
+        <div class="img-wrapper">
+          <img
+            class="result__choice__img"
+            id="playerChoice"
+            src=""
+            alt="Player's choice"
+          />
+        </div>
+      </div>
+      <div class="result__info">
+        <span class="uppercase" id="resultText"></span>
+        <button class="uppercase" id="replayBtn">Play again</button>
+      </div>
+      <div class="result__choice">
+        <span class="uppercase">The house picked</span>
+        <div class="img-wrapper">
+          <img
+            class="result__choice__img"
+            id="houseChoice"
+            src=""
+            alt="House's choice"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="rules">
+      <button class="rules__button uppercase">Rules</button>
+    </div>
+  </body>
 </html>
