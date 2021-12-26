@@ -30,9 +30,9 @@
         <span class="title__score__total">0</span>
       </div>
     </div>
-    <div class="game">
+    <div class="game hidden">
       <div class="option">
-        <button class="option__btn" id="rockBtn">
+        <button class="option__btn option__rock" id="rockBtn">
           <img
             class="option__img"
             src="images/icon-rock.svg"
@@ -41,7 +41,7 @@
         </button>
       </div>
       <div class="option">
-        <button class="option__btn" id="paperBtn">
+        <button class="option__btn option__paper" id="paperBtn">
           <img
             class="option__img"
             src="images/icon-paper.svg"
@@ -50,7 +50,7 @@
         </button>
       </div>
       <div class="option">
-        <button class="option__btn" id="scissorsBtn">
+        <button class="option__btn option__scissors" id="scissorsBtn">
           <img
             class="option__img"
             src="images/icon-scissors.svg"
@@ -59,7 +59,7 @@
         </button>
       </div>
     </div>
-    <div class="result hidden">
+    <div class="result">
       <div class="result__choice">
         <span class="uppercase">You picked</span>
         <div class="img-wrapper">
@@ -72,7 +72,7 @@
         </div>
       </div>
       <div class="result__info">
-        <span class="uppercase" id="resultText"></span>
+        <span class="uppercase" id="resultText">You win</span>
         <button class="uppercase" id="replayBtn">Play again</button>
       </div>
       <div class="result__choice">
