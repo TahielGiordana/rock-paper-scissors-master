@@ -83,9 +83,11 @@ const getResult = (choices) => {
 };
 
 const showResult = (playerChoice, houseChoice, result) => {
+  showResultScreen(true);
+  /*
   gameScreen.classList.toggle("hidden");
   resultScreen.classList.toggle("hidden");
-
+  */
   //Se seleccionan las imágenes correspondientes
   playerChoiceImg.src = "images/icon-" + playerChoice + ".svg";
   let actualPlayerChoice = playerChoiceImg.parentElement.classList.item(1);
@@ -114,6 +116,27 @@ const showResult = (playerChoice, houseChoice, result) => {
 
 //Se oculta el resultado para volver a jugar
 replayBtn.addEventListener("click", () => {
+  showResultScreen(false);
+  /*
   gameScreen.classList.toggle("hidden");
   resultScreen.classList.toggle("hidden");
+  */
 });
+
+const showResultScreen = (bool) => {
+  if (!bool) {
+    gameScreen.style.visibility = "visible";
+    gameScreen.style.position = "relative";
+    gameScreen.style.opacity = 1;
+    resultScreen.style.visibility = "hidden";
+    resultScreen.style.position = "absolute";
+    resultScreen.style.opacity = 0;
+  } else {
+    resultScreen.style.visibility = "visible";
+    resultScreen.style.position = "relative";
+    resultScreen.style.opacity = 1;
+    gameScreen.style.visibility = "hidden";
+    gameScreen.style.position = "absolute";
+    gameScreen.style.opacity = 0;
+  }
+};

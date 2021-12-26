@@ -95,6 +95,7 @@ body {
   grid-template-areas: "top top" "centerLeft centerRight" "bottomLeft bottomRight";
   background: url(images/bg-pentagon.svg) no-repeat center;
   padding: 0.5em;
+  transition: opacity 0.5s;
 }
 
 .option {
@@ -243,6 +244,10 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2em;
+  transition: opacity 1s;
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
 }
 
 .result__info {
@@ -319,10 +324,10 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 50%;
+  top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 0px 300px 200px white;
+  box-shadow: 0px 0px 300px 200px var(--color-outline);
   z-index: -10;
 }
 
@@ -441,6 +446,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "topLeft topRight" "bottom bottom";
     gap: 4em;
+    transition: visibility 1s;
   }
 
   .result__info {
@@ -497,5 +503,6 @@ button:hover {
 }
 
 .hidden {
-  display: none;
+  position: absolute;
+  visibility: hidden;
 }
