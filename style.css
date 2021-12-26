@@ -9,6 +9,12 @@
   --color-rock: hsl(349, 71%, 52%);
   --color-rock-gradient: hsl(349, 70%, 56%);
   --color-rock-shadow: hsl(349, 60%, 40%);
+  --color-lizard: hsl(261, 73%, 60%);
+  --color-lizard-gradient: hsl(261, 72%, 63%);
+  --color-lizard-shadow: hsl(261, 72%, 40%);
+  --color-spock: hsl(189, 59%, 53%);
+  --color-spock-gradient: hsl(189, 58%, 57%);
+  --color-spock-shadow: hsl(189, 58%, 40%);
   --color-text-dark: hsl(229, 25%, 31%);
   --color-text-score: hsl(229, 64%, 46%);
   --color-outline: hsl(217, 16%, 45%);
@@ -53,7 +59,7 @@ body {
   align-items: center;
   border: var(--color-outline) 4px solid;
   border-radius: 1em;
-  margin-top: 1em;
+  margin-top: 0.5em;
   padding: 1em 1.5em;
 }
 
@@ -84,15 +90,16 @@ body {
 /*Contiene las opciones y la pantalla de resultado*/
 .game {
   display: grid;
-  grid-template-rows: repeat(2, 204px);
+  grid-template-rows: repeat(3, 150px);
   grid-template-columns: repeat(2, 224px);
-  grid-template-areas: "topLeft topRight" "bottom bottom";
-  background: url(images/bg-triangle.svg) no-repeat center;
+  grid-template-areas: "top top" "centerLeft centerRight" "bottomLeft bottomRight";
+  background: url(images/bg-pentagon.svg) no-repeat center;
+  padding: 0.5em;
 }
 
 .option {
-  width: 184px;
-  height: 184px;
+  width: 142px;
+  height: 142px;
   justify-self: center;
   align-self: center;
   display: flex;
@@ -103,19 +110,27 @@ body {
 
 /*Posiciono cada uno de los botones*/
 .option:nth-child(1) {
-  grid-area: bottom;
+  grid-area: bottomRight;
 }
 
 .option:nth-child(2) {
-  grid-area: topLeft;
+  grid-area: centerRight;
 }
 
 .option:nth-child(3) {
-  grid-area: topRight;
+  grid-area: top;
+}
+
+.option:nth-child(4) {
+  grid-area: bottomLeft;
+}
+
+.option:nth-child(5) {
+  grid-area: centerLeft;
 }
 
 .option__img {
-  height: 80px;
+  height: 58px;
 }
 
 .option__btn {
@@ -129,19 +144,45 @@ body {
 }
 
 /*Estilos de cada boton*/
-.option__rock {
+.rock-style {
   box-shadow: 0 8px 0 0px var(--color-rock-shadow), 0 8px 0 0px #0005 inset;
-  border: var(--color-rock) 24px solid;
+  border: var(--color-rock) 16px solid;
+}
+
+.paper-style {
+  box-shadow: 0 8px 0 0px var(--color-paper-shadow), 0 8px 0 0px #0005 inset;
+  border: var(--color-paper) 16px solid;
+}
+
+.scissors-style {
+  box-shadow: 0 8px 0 0px var(--color-scissors-shadow), 0 8px 0 0px #0005 inset;
+  border: var(--color-scissors) 16px solid;
+}
+
+.lizard-style {
+  box-shadow: 0 10px 0 0px var(--color-lizard-shadow), 0 5px 0 0px #0005 inset;
+  border: var(--color-lizard) 1em solid;
+}
+
+.spock-style {
+  box-shadow: 0 10px 0 0px var(--color-spock-shadow), 0 5px 0 0px #0005 inset;
+  border: var(--color-spock) 1em solid;
+}
+
+.option__rock {
+  transform: translate(-15%, 0);
 }
 
 .option__paper {
-  box-shadow: 0 8px 0 0px var(--color-paper-shadow), 0 8px 0 0px #0005 inset;
-  border: 24px var(--color-paper) solid;
+  transform: translate(25%, -25%);
 }
 
-.option__scissors {
-  box-shadow: 0 8px 0 0px var(--color-scissors-shadow), 0 8px 0 0px #0005 inset;
-  border: var(--color-scissors) 24px solid;
+.option__lizard {
+  transform: translate(15%, 0);
+}
+
+.option__spock {
+  transform: translate(-25%, -25%);
 }
 
 .option__rock:hover {
@@ -156,16 +197,28 @@ body {
   background-color: var(--color-scissors-gradient);
 }
 
+.option__lizard:hover {
+  background-color: var(--color-lizard-gradient);
+}
+
+.option__spock:hover {
+  background-color: var(--color-spock-gradient);
+}
+
 /*Boton para ver las reglas del juego*/
 .rules {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0 1em 0 1em;
 }
 
 .rules__button {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
   color: white;
   background-color: transparent;
   border: var(--color-outline) 2px solid;
@@ -176,6 +229,7 @@ body {
   letter-spacing: 4px;
   padding: 0.875rem 2.375rem;
   transition: background-color 0.2s;
+  margin: 0.5em;
 }
 
 .rules__button:hover {
@@ -300,45 +354,58 @@ body {
   }
 
   .game {
-    grid-template-rows: repeat(2, 9em);
-    grid-template-columns: repeat(2, 10em);
-    background-size: 60%;
+    grid-template-rows: repeat(3, 100px);
+    grid-template-columns: repeat(2, 150px);
+    background-size: 100%;
   }
 
   .option {
-    width: 8em;
-    height: 8em;
+    width: 94px;
+    height: 94px;
   }
 
   .option:nth-child(1) {
-    justify-self: center;
-    align-self: flex-end;
+    transform: translate(25%, 25%);
   }
 
   .option:nth-child(2) {
-    justify-self: flex-start;
-    align-self: flex-start;
+    transform: translate(25%, 0%);
   }
 
   .option:nth-child(3) {
-    justify-self: flex-end;
-    align-self: flex-start;
+    transform: translate(0%, -25%);
+  }
+
+  .option:nth-child(4) {
+    transform: translate(-25%, 25%);
+  }
+
+  .option:nth-child(5) {
+    transform: translate(-25%, 0%);
   }
 
   .option__img {
-    height: 3.5em;
+    height: 40px;
   }
 
-  .option__rock {
+  .rock-style {
     border: var(--color-rock) 1em solid;
   }
 
-  .option__paper {
+  .paper-style {
     border: var(--color-paper) 1em solid;
   }
 
-  .option__scissors {
+  .scissors-style {
     border: var(--color-scissors) 1em solid;
+  }
+
+  .lizard-style {
+    border: var(--color-lizard) 1em solid;
+  }
+
+  .spock-style {
+    border: var(--color-spock) 1em solid;
   }
 
   .option__rock:active {
@@ -356,6 +423,12 @@ body {
   .rules {
     justify-content: center;
     padding: 1em 1em 3.5em 1em;
+  }
+
+  .rules__button {
+    bottom: auto;
+    right: auto;
+    position: relative;
   }
 
   .rules__button:active {
