@@ -17,6 +17,13 @@ const resultScreen = document.querySelector(".result");
 
 const options = ["rock", "paper", "scissors"];
 
+if (localStorage.getItem("score") == null) {
+  scoreText.innerText = 0;
+  localStorage.setItem("score", 0);
+} else {
+  scoreText.innerText = localStorage.getItem("score");
+}
+
 const calcHomeChoice = () => {
   return options[Math.floor(Math.random() * 3)];
 };
@@ -43,6 +50,7 @@ const getResult = (choices) => {
     case "scissorspaper":
       if (parseInt(scoreText.innerText) < 999999) {
         scoreText.innerText = parseInt(scoreText.innerText) + 1;
+        localStorage.setItem("score", parseInt(scoreText.innerText));
       }
       return "You win";
     case "rockpaper":
