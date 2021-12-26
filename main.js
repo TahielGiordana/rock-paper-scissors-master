@@ -56,6 +56,7 @@ const showResult = (playerChoice, houseChoice, result) => {
   gameScreen.classList.toggle("hidden");
   resultScreen.classList.toggle("hidden");
 
+  //Se seleccionan las imágenes correspondientes
   playerChoiceImg.src = "images/icon-" + playerChoice + ".svg";
   let actualPlayerChoice = playerChoiceImg.parentElement.classList.item(1);
   playerChoiceImg.parentElement.classList.replace(
@@ -70,9 +71,18 @@ const showResult = (playerChoice, houseChoice, result) => {
     "option__" + houseChoice
   );
 
+  //Se agrega el estilo al ganador
+  playerChoiceImg.parentElement.classList.remove("winner");
+  houseChoiceImg.parentElement.classList.remove("winner");
   resultText.innerText = result;
+  if (result == "You win") {
+    playerChoiceImg.parentElement.classList.add("winner");
+  } else if (result == "You lose") {
+    houseChoiceImg.parentElement.classList.add("winner");
+  }
 };
 
+//Se oculta el resultado para volver a jugar
 replayBtn.addEventListener("click", () => {
   gameScreen.classList.toggle("hidden");
   resultScreen.classList.toggle("hidden");
