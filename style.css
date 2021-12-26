@@ -162,7 +162,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
-  padding: 0.5em 1em 1em 1em;
+  padding: 0.5em 1em 0.5em 1em;
 }
 
 .rules__button {
@@ -173,8 +173,8 @@ body {
   font-family: var(--ff-text);
   font-size: 0.75rem;
   font-weight: var(--fw-semibold);
-  letter-spacing: 2px;
-  padding: 0.875rem 2.25rem;
+  letter-spacing: 4px;
+  padding: 0.875rem 2.375rem;
   transition: background-color 0.2s;
 }
 
@@ -208,15 +208,15 @@ body {
 }
 
 #replayBtn {
-  width: 100%;
+  width: auto;
   color: var(--color-text-dark);
   background-color: white;
   border: none;
-  border-radius: 0.25em;
+  border-radius: 0.5em;
   font-family: var(--ff-text);
   font-weight: var(--fw-semibold);
   font-size: 1em;
-  padding: 0.5em 1em;
+  padding: 1rem 3.75rem;
   transition: color 0.2s;
 }
 
