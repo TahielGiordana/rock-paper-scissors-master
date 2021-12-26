@@ -1,3 +1,4 @@
+/*Declaro colores y fuentes como variables*/
 :root {
   --color-scissors: hsl(39, 89%, 49%);
   --color-scissors-gradient: hsl(40, 84%, 53%);
@@ -18,6 +19,7 @@
   --fw-bold: 700;
 }
 
+/*CSS Reset*/
 *,
 *::after,
 *::before {
@@ -29,29 +31,37 @@
   text-transform: uppercase;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
 
 body {
+  min-width: 500px;
   height: 100vh;
+  min-height: 640px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   background-image: radial-gradient(var(--color-bg), var(--color-bg-gradient));
   background-repeat: no-repeat;
   font-family: var(--ff-text);
 }
 
+/*Parte superior con título y puntaje*/
 .title {
-  width: max(400px, 60%);
+  width: max(450px, 60%);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border: var(--color-outline) 4px solid;
   border-radius: 1em;
+  margin-top: 1em;
   padding: 1em 1.5em;
 }
 
@@ -79,5 +89,105 @@ body {
   font-size: 3rem;
 }
 
+/*Contiene las opciones y la pantalla de resultado*/
 .game {
+  display: grid;
+  grid-template-rows: repeat(2, 204px);
+  grid-template-columns: repeat(2, 224px);
+  grid-template-areas: "topLeft topRight" "bottom bottom";
+  background: url(images/bg-triangle.svg) no-repeat center;
+}
+
+.option {
+  width: 184px;
+  height: 184px;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+/*Posiciono cada uno de los botones*/
+.option:nth-child(1) {
+  grid-area: bottom;
+}
+
+.option:nth-child(2) {
+  grid-area: topLeft;
+}
+
+.option:nth-child(3) {
+  grid-area: topRight;
+}
+
+.option__img {
+  height: 80px;
+}
+
+.option__btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  transition: background-color 0.5s;
+  transition-timing-function: ease-out;
+}
+
+/*Estilos de cada boton*/
+#rockBtn {
+  box-shadow: 0 8px 0 0px var(--color-rock-shadow), 0 8px 0 0px #0005 inset;
+  border: var(--color-rock) 24px solid;
+}
+
+#paperBtn {
+  box-shadow: 0 8px 0 0px var(--color-paper-shadow), 0 8px 0 0px #0005 inset;
+  border: 24px var(--color-paper) solid;
+}
+
+#scissorsBtn {
+  box-shadow: 0 8px 0 0px var(--color-scissors-shadow), 0 8px 0 0px #0005 inset;
+  border: var(--color-scissors) 24px solid;
+}
+
+#rockBtn:hover {
+  background-color: var(--color-rock-gradient);
+}
+
+#paperBtn:hover {
+  background-color: var(--color-paper-gradient);
+}
+
+#scissorsBtn:hover {
+  background-color: var(--color-scissors-gradient);
+}
+
+/*Boton para ver las reglas del juego*/
+.rules {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0.5em 1em 1em 1em;
+}
+
+.rules__button {
+  color: white;
+  background-color: transparent;
+  border: var(--color-outline) 2px solid;
+  border-radius: 0.5em;
+  font-family: var(--ff-text);
+  font-size: 0.75rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 2px;
+  padding: 0.75em 2.5em;
+
+  transition: background-color 0.2s;
+}
+
+.rules__button:hover {
+  background-color: var(--color-outline);
+  cursor: pointer;
 }
