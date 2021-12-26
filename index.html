@@ -27,12 +27,12 @@
       />
       <div class="title__score">
         <span class="title__score__label uppercase">Score</span>
-        <span class="title__score__total">0</span>
+        <span class="title__score__total" id="totalScore">0</span>
       </div>
     </div>
-    <div class="game hidden">
+    <div class="game">
       <div class="option">
-        <button class="option__btn option__rock" id="rockBtn">
+        <button class="option__btn option__rock" id="rockBtn" value="rock">
           <img
             class="option__img"
             src="images/icon-rock.svg"
@@ -41,7 +41,7 @@
         </button>
       </div>
       <div class="option">
-        <button class="option__btn option__paper" id="paperBtn">
+        <button class="option__btn option__paper" id="paperBtn" value="paper">
           <img
             class="option__img"
             src="images/icon-paper.svg"
@@ -50,7 +50,11 @@
         </button>
       </div>
       <div class="option">
-        <button class="option__btn option__scissors" id="scissorsBtn">
+        <button
+          class="option__btn option__scissors"
+          id="scissorsBtn"
+          value="scissors"
+        >
           <img
             class="option__img"
             src="images/icon-scissors.svg"
@@ -59,10 +63,10 @@
         </button>
       </div>
     </div>
-    <div class="result">
+    <div class="result hidden">
       <div class="result__choice">
         <span class="uppercase">You picked</span>
-        <div class="img-wrapper">
+        <div class="img-wrapper option-none">
           <img
             class="result__choice__img"
             id="playerChoice"
@@ -77,7 +81,7 @@
       </div>
       <div class="result__choice">
         <span class="uppercase">The house picked</span>
-        <div class="img-wrapper">
+        <div class="img-wrapper option-none">
           <img
             class="result__choice__img"
             id="houseChoice"
@@ -90,5 +94,6 @@
     <div class="rules">
       <button class="rules__button uppercase">Rules</button>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>

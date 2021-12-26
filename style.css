@@ -29,7 +29,7 @@
 
 body {
   min-width: 500px;
-  height: 100vh;
+  height: max(100vh, auto);
   min-height: 640px;
   display: flex;
   flex-direction: column;
@@ -250,6 +250,10 @@ body {
   align-items: center;
   background-color: white;
   border-radius: 50%;
+}
+
+.result__choice__img {
+  height: 100px;
 }
 
 .uppercase {
