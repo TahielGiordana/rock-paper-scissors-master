@@ -244,7 +244,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2em;
-  transition: opacity 1s;
+  transition: opacity 0s;
   visibility: hidden;
   position: absolute;
   opacity: 0;
@@ -264,6 +264,7 @@ body {
   font-family: var(--ff-text);
   font-weight: var(--fw-semibold);
   font-size: 3em;
+  transition: 1s;
 }
 
 #replayBtn {
@@ -276,7 +277,7 @@ body {
   font-weight: var(--fw-semibold);
   font-size: 1em;
   padding: 1rem 3.75rem;
-  transition: color 0.2s;
+  transition: color 0.2s, opacity 0.5s, visibility 0.5s;
 }
 
 #replayBtn:hover {
