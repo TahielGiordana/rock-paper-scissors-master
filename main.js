@@ -13,6 +13,8 @@ const playerChoiceImg = document.getElementById("playerChoice");
 const houseChoiceImg = document.getElementById("houseChoice");
 
 const rulesBtn = document.getElementById("rulesBtn");
+const closeRulesBtn = document.getElementById("closeRules");
+const rulesInfo = document.querySelector(".rules__info");
 
 const gameScreen = document.querySelector(".game");
 const resultScreen = document.querySelector(".result");
@@ -88,6 +90,7 @@ const showReplayBtn = () => {
   replayBtn.style.opacity = 1;
 };
 
+let winnerDiv;
 const showResult = (result) => {
   if (result == "You win") {
     if (parseInt(scoreText.innerText) < 999999) {
@@ -177,4 +180,12 @@ replayBtn.addEventListener("click", () => {
   resultScreen.style.position = "absolute";
   resultScreen.style.opacity = 0;
   resetResultScreen();
+});
+
+rulesBtn.addEventListener("click", () => {
+  rulesInfo.classList.remove("hidden");
+});
+
+closeRulesBtn.addEventListener("click", () => {
+  rulesInfo.classList.add("hidden");
 });
