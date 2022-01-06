@@ -377,6 +377,7 @@ body {
   .title {
     width: max(320px, 60%);
     padding: 0.5em;
+    margin-bottom: 1em;
   }
 
   .title > img {
@@ -480,7 +481,7 @@ body {
 
   .result {
     display: grid;
-    grid-template-rows: repeat(2, 180px);
+    grid-template-rows: 180px 120px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "topLeft topRight" "bottom bottom";
     gap: 4em;
