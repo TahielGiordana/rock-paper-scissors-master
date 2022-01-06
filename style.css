@@ -251,12 +251,14 @@ body {
 }
 
 .result__info {
+  width: max-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 1em;
   gap: 1em;
+  transition: max-width 1s ease-in;
 }
 
 #resultText {
@@ -264,11 +266,11 @@ body {
   font-family: var(--ff-text);
   font-weight: var(--fw-semibold);
   font-size: 3em;
-  transition: 1s;
+  transition: all 1s;
 }
 
 #replayBtn {
-  width: auto;
+  height: auto;
   color: var(--color-text-dark);
   background-color: white;
   border: none;
@@ -277,7 +279,7 @@ body {
   font-weight: var(--fw-semibold);
   font-size: 1em;
   padding: 1rem 3.75rem;
-  transition: color 0.2s, opacity 0.5s, visibility 0.5s;
+  transition: color 0.2s, opacity 1s;
 }
 
 #replayBtn:hover {

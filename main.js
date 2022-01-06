@@ -67,14 +67,24 @@ const showResultScreen = async () => {
 
   let result = getResult(playerChoice + houseChoice);
   showResult(result);
+  resultText.parentElement.style.maxWidth = "300px";
+  resultText.innerText = result;
+  resultText.style.position = "relative";
+
+  setTimeout(() => {
+    resultText.style.visibility = "visible";
+    resultText.style.opacity = 1;
+  }, 1000);
+
+  replayBtn.style.position = "relative";
+
   setTimeout(() => {
     showReplayBtn();
-  }, 500);
+  }, 1500);
 };
 
 const showReplayBtn = () => {
   replayBtn.style.visibility = "visible";
-  replayBtn.style.position = "relative";
   replayBtn.style.opacity = 1;
 };
 
@@ -92,10 +102,6 @@ const showResult = (result) => {
     }
     houseChoiceImg.parentElement.classList.add("winner");
   }
-  resultText.innerText = result;
-  resultText.style.visibility = "visible";
-  resultText.style.position = "relative";
-  resultText.style.opacity = 1;
 };
 
 //Show game screen
@@ -126,6 +132,7 @@ const resetResultScreen = () => {
   resultText.style.visibility = "hidden";
   resultText.style.position = "absolute";
   resultText.style.opacity = 0;
+  resultText.parentElement.style.maxWidth = 0;
 };
 
 const getResult = (choices) => {
